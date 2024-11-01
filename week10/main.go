@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -42,7 +41,8 @@ func main() {
 		i := 3
 
 		//for i < n {
-		for i <= int(math.Sqrt(float64(n))) {
+		//for i <= int(math.Sqrt(float64(n))) {
+		for i*i <= n {
 			if n%i == 0 {
 				isPrime = false
 				break // 1과 자기 자신을 제외한 첫 번째 약수가 발견 되면 반복문 종료
