@@ -25,22 +25,25 @@ func main() {
 		log.Fatal(err)
 	}
 
-	count := 0
+	//count := 0
+
+	var isPrime bool = true //int -> bool counts -> isprime 메모리효율증가
 
 	if n <= 1 {
-		count = -1
+		isPrime = false //가독성
 	} else {
 
 		i := 2
 
 		for i < n {
 			if n%i == 0 {
-				count = count + 1
+				isPrime = false
 			}
 			i++
 		}
 	}
-	if count == 0 {
+	//if count == 0 {
+	if isPrime { //비교연산 제거
 		fmt.Printf("%d는(은) 소수입니다.\n", n)
 	} else {
 		fmt.Printf("%d는(은) 소수가 아닙니다!\n", n)
