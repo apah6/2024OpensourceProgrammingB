@@ -2,41 +2,25 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"reflect"
 )
 
 func main() {
-	// var dates [3]time.Time
-	// dates[2] = time.Unix(1708012346, 0)
-	// dates[0] = time.Unix(0, 0)
-	// fmt.Println(dates[0], dates[1], dates[2]) // unix time, zero value, unixTime(1708012346)
+	gpas := [5]float64{3.5, 4.1, 4.5, 3.9, 4.23} // array := array literal
+	fmt.Println(gpas, reflect.TypeOf(gpas))
+	// gpasSlice := gpas[1:4] // slice := slicing array, but 'Negative' numbers cannot be used
+	// fmt.Println(gpasSlice, reflect.TypeOf(gpasSlice))
 
-	//var dates [3]time.Time = [3]time.Time{time.Unix(0, 0), time.Unix(1, 0), time.Unix(1708012346, 0)}
-	// dates := [3]time.Time{time.Unix(0, 0), time.Unix(1, 0), time.Unix(1708012346, 0)}
-	// fmt.Println(dates[0], dates[1], dates[2]) // unix time, zero value, unixTime(1708012346)
+	// Creat a slice by slice literal
+	// gpasSlice := []float64{4.1, 4.5, 3.9}
+	// fmt.Println(gpasSlice, reflect.TypeOf(gpasSlice))
 
-	// dates := [3]time.Time{
-	// 	time.Unix(0, 0),
-	// 	time.Unix(1, 0),
-	// 	time.Unix(1708012346, 0),
-	// }
-	// fmt.Println(dates[0], dates[1], dates[2])
-
-	dates := [3]time.Time{
-		time.Unix(0, 0),
-		time.Unix(1, 0),
-		time.Unix(1708012346, 0)}
-
-	// fmt.Println(dates[0], dates[1], dates[2])
-	// fmt.Println(dates)         //arry
-	// fmt.Printf("%#v\n", dates) //arry literal
-
-	for i, date := range dates { // like python for in
-		fmt.Println(i, date)
-	}
-
-	// for _, date := range dates { // "_" mean do not use
-	// 	fmt.Println(date)
-	// }
+	// Creat a slice by slice make function
+	var gpasSlice []float64
+	gpasSlice = make([]float64, 3)
+	gpasSlice[0] = 4.1
+	gpasSlice[1] = 4.5
+	gpasSlice[2] = 3.9
+	fmt.Println(gpasSlice, reflect.TypeOf(gpasSlice))
 
 }
