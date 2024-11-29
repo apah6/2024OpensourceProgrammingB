@@ -2,21 +2,39 @@ package main
 
 import "fmt"
 
-type student struct {
-	id   int
-	name string
-	gpa  float32
+type visitor struct {
+	age  int
+	cost int
+}
+
+func totalCoast(visitors []visitor) int {
+	total := 0
+	for _, v := range visitors {
+		total = total + v.cost
+	}
+	return total
 }
 
 func main() {
-	var student1 student
-	student1.id = 202444049
-	student1.name = "Maeng Eunjae"
-	student1.gpa = 3.5
-	fmt.Println(student1.gpa)
-	var student2 student
-	student2.id = 202444040
-	student2.name = "Unknown"
-	student2.gpa = 3.6
-	fmt.Println(student2.gpa)
+	var numVisitor int
+	fmt.Print("How many people? ")
+	fmt.Scanln(&numVisitor)
+	vs := make([]visitor, numVisitor)
+
+	for i := 0; i < numVisitor; i++ {
+		age := 0
+		fmt.Print("How old are you? ")
+		fmt.Scanln(&age)
+
+		switch {
+		case age < 12:
+			vs[i] = visitor{age: age, cost: 5000}
+		case age >= 12 && age < 65:
+			vs[i] = visitor{age: age, cost: 10000}
+		default:
+			vs[i] = visitor{age: age, cost: 7000}
+		}
+	}
+
+	fmt.Printf("Total price is %dwon.", totalCoast(vs))
 }
